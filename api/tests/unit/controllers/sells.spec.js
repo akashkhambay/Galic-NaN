@@ -25,37 +25,16 @@ describe("sells controller", () => {
       expect(mockJson).toHaveBeenCalledWith(["sell1", "sell2"]);
     });
   });
-
-  describe("show", () => {
-    test("it returns a buy with a 200 status code", async () => {
+  describe("showUserSells", () => {
+    test("it returns new stock sold with a status code 201", async () => {
       let testSell = {
-        id: 1,
-        ticker: "TEST",
-        fee: 100,
-        buy_level: 10,
-        num_shares: 10,
-        stored_price: 10,
-        date_of_purchase: 2015 - 06 - 06,
-      };
-      jest.spyOn(Sell, "findById").mockResolvedValue(new Sell(testSell));
-
-      const mockReq = { params: { id: 1 } };
-      await sellsController.show(mockReq, mockRes);
-      expect(mockStatus).toHaveBeenCalledWith(200);
-      expect(mockJson).toHaveBeenCalledWith(new Sell(testSell));
-    });
-  });
-
-  describe("create", () => {
-    test("it returns a new sell with a 201 status code", async () => {
-      let testBuy = {
-        id: 2,
-        ticker: "TEST",
-        fee: 100,
-        buy_level: 10,
-        num_shares: 10,
-        stored_price: 10,
-        date_of_purchase: 2015 - 06 - 06,
+        buy_id: 1,
+        ticker: "Test",
+        fee: 50,
+        buy_level: 50,
+        num_shares: 50,
+        stored_price: 50,
+        date_of_purchase: "2015-10-01 00:00:00",
       };
       jest.spyOn(Sell, "create").mockResolvedValue(new Sell(testSell));
 
@@ -63,16 +42,6 @@ describe("sells controller", () => {
       await sellsController.create(mockReq, mockRes);
       expect(mockStatus).toHaveBeenCalledWith(201);
       expect(mockJson).toHaveBeenCalledWith(new Sell(testSell));
-    });
-  });
-
-  describe("destroy", () => {
-    test("it returns a 204 status code on successful deletion", async () => {
-      jest.spyOn(Sell.prototype, "destroy").mockResolvedValue("Deleted");
-
-      const mockReq = { params: { id: 1 } };
-      await sellsController.destroy(mockReq, mockRes);
-      expect(mockStatus).toHaveBeenCalledWith(204);
     });
   });
 });
