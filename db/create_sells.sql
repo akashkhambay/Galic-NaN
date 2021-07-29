@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS sells;
 
 CREATE TABLE sells (
-    buy_id serial PRIMARY KEY,
+    id serial PRIMARY KEY,
     ticker VARCHAR(10) NOT NULL,
     fee int,
     buy_level int NOT NULL,

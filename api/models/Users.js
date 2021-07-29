@@ -31,16 +31,29 @@ module.exports = class Users {
           "SELECT buy_id, ticker, fee, buy_level, num_shares, stored_price, date_of_purchase FROM buys WHERE user_id = $1",
           [id]
         );
-        const stocks = result.rows.map((s) => ({
+        const buys = result.rows.map((s) => ({
+          id: s.buy_id,
           ticker: s.ticker,
           fee: s.fee,
           buy_level: s.buy_level,
           num_shares: s.num_shares,
           stored_price: s.stored_price,
-          date_of_purchase: s.date_of_purchase,
-          path: `/stocks/${s.buy_id}`,
+          date_of_purchase: s.date_of_purchase
         }));
-        resolve(stocks);
+        const result2 = await db.query(
+          "SELECT id, ticker, fee, buy_level, num_shares, stored_price, date_of_purchase FROM sells WHERE user_id = $1",
+          [id]
+        );
+        const sells = result2.rows.map((s) => ({
+          id: s.id,
+          ticker: s.ticker,
+          fee: s.fee,
+          buy_level: s.buy_level,
+          num_shares: s.num_shares,
+          stored_price: s.stored_price,
+          date_of_purchase: s.date_of_purchase
+        }));
+        resolve({buys,sells});
       } catch (err) {
         reject("Users stocks could not be found");
       }
@@ -70,7 +83,7 @@ module.exports = class Users {
     return new Promise(async (resolve, reject) => {
       try {
         let userEmail = await db.query(
-          "SELECT * FROM users WHERE user_email = $1;",
+          "SELECT * FROM users WHERE email = $1;",
           [email]
         );
         let user = new Users(userEmail.rows[0]);

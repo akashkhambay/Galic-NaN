@@ -19,24 +19,25 @@
     - Basic server created with connection to db
     - Add models and controllers for stocksBought and users
     - Add static functions to models
-    - Add aysnc functions to controllers.
-    - Add auth controller, to allow for auth and auth.
+    - Add aysnc functions to controllers
+    - Add auth controller, to allow for auth and auth
     - Made routes for the get,post,delete etc...
-    - Updated server.js to have app.use for the users, stocksBought and auth js files in our controllers folder.
-    - Updated routes, such that the api is working and showing the data.
-    - Users are being shown in the users route.
-    - StocksBought are being shown in the stocks bought route.
-    - Made some changes to the controllers.
-    - Added a index function to show by index.
-    - Add an update route
-    - Add functionality to allow for the stocks, to be updated, found by id pr by particular user.
-    - Only get a particular user's stocks.
+    - Updated server.js to have app.use for the users, stocksBought and auth js files in our controllers folder
+    - Updated routes, such that the api is working and showing the data
+    - Users are being shown in the users route
+    - StocksBought are being shown in the stocks bought route
+    - Made some changes to the controllers
+    - Added a index function to show by index
+    - Fixed server (user and stockbought)
+    - Added Sells
+    - Edited Users funtion that retrieve the list of stocks
 
 ## Database
 
     - Create DB Schema
-    - Creat db for selling and buying stocks.
-    - Created a db for users.
+    - Creat db for selling and buying stocks
+    - Created a db for users
+    - Change the way timestamp works
 
 ## Misc
 
