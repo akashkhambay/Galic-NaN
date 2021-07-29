@@ -47,9 +47,9 @@ describe("sells controller", () => {
   });
 
   describe("create", () => {
-    test("it returns a new buy with a 201 status code", async () => {
+    test("it returns a new sell with a 201 status code", async () => {
       let testBuy = {
-        buy_id: 2,
+        id: 2,
         ticker: "TEST",
         fee: 100,
         buy_level: 10,
@@ -57,12 +57,12 @@ describe("sells controller", () => {
         stored_price: 10,
         date_of_purchase: 2015 - 06 - 06,
       };
-      jest.spyOn(Buy, "create").mockResolvedValue(new Buy(testBuy));
+      jest.spyOn(Sell, "create").mockResolvedValue(new Sell(testSell));
 
-      const mockReq = { body: testBuy };
-      await buysController.create(mockReq, mockRes);
+      const mockReq = { body: testSell };
+      await sellsController.create(mockReq, mockRes);
       expect(mockStatus).toHaveBeenCalledWith(201);
-      expect(mockJson).toHaveBeenCalledWith(new Book(testBuy));
+      expect(mockJson).toHaveBeenCalledWith(new Sell(testSell));
     });
   });
 
