@@ -68,10 +68,10 @@ describe("sells controller", () => {
 
   describe("destroy", () => {
     test("it returns a 204 status code on successful deletion", async () => {
-      jest.spyOn(Buy.prototype, "destroy").mockResolvedValue("Deleted");
+      jest.spyOn(Sell.prototype, "destroy").mockResolvedValue("Deleted");
 
       const mockReq = { params: { id: 1 } };
-      await buysController.destroy(mockReq, mockRes);
+      await sellsController.destroy(mockReq, mockRes);
       expect(mockStatus).toHaveBeenCalledWith(204);
     });
   });
