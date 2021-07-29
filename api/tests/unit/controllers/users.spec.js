@@ -23,21 +23,21 @@ describe("users controller", () => {
   });
 
   describe("show", () => {
-    test("it returns an author and their books with a 200 status code", async () => {
+    test("it returns an user and their buys with a 200 status code", async () => {
       jest
-        .spyOn(Author, "findById")
-        .mockResolvedValue(new Author({ id: 1, name: "Test Author" }));
+        .spyOn(User, "findById")
+        .mockResolvedValue(new User({ id: 1, name: "Test User" }));
       jest
-        .spyOn(Author.prototype, "books", "get")
-        .mockResolvedValue(["book1", "book2"]);
+        .spyOn(User.prototype, "buys", "get")
+        .mockResolvedValue(["buy1", "buy2"]);
 
       const mockReq = { params: { id: 1 } };
-      await authorsController.show(mockReq, mockRes);
+      await usersController.show(mockReq, mockRes);
       expect(mockStatus).toHaveBeenCalledWith(200);
       expect(mockJson).toHaveBeenCalledWith({
         id: 1,
-        name: "Test Author",
-        books: ["book1", "book2"],
+        name: "Test User",
+        books: ["buy1", "buy2"],
       });
     });
   });
