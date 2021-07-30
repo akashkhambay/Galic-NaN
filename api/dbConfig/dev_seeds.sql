@@ -1,6 +1,6 @@
 INSERT INTO users (name, email, password) 
 VALUES 
-('Shav', 'shav@email.co.uk', 'asdasd'),
+('Shav', 'shav@email.co.uk', 'shav'),
 ('Monica', 'monica@email.co.uk', 'zxczxc'),
 ('Moony', 'moony@email.co.uk', 'qweqwe');
 INSERT INTO buys (ticker, fee, buy_level, num_shares, stored_price, date_of_purchase, user_id)

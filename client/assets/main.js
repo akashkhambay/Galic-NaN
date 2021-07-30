@@ -24,7 +24,7 @@ function signup() {
     
     let nameinput = document.createElement('input')
     namediv.append(nameinput)
-    nameinput.setAttribute('class', 'shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border')
+    nameinput.setAttribute('class', 'shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500 focus:border')
     nameinput.setAttribute('id', 'name')
     nameinput.setAttribute('placeholder', 'Full Name')
     
@@ -44,7 +44,7 @@ function signup() {
     
     let passwordInput = document.createElement('input')
     passwordDiv.append(passwordInput)
-    passwordInput.setAttribute('class', 'shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border')
+    passwordInput.setAttribute('class', 'shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500 focus:border')
     passwordInput.setAttribute('id', 'passwordrepeat')
     passwordInput.setAttribute('placeholder', 'Repeat Password')
     passwordInput.setAttribute('type', 'password')

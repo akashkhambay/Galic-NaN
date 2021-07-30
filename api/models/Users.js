@@ -66,8 +66,10 @@ module.exports = class Users {
     return new Promise(async (resolve, reject) => {
       try {
         let userData = await db.query(
-          "INSERT INTO users (id, name, password, email) VALUES ($1,$2,$3,$4) RETURNING *;",
-          [data]
+
+          "INSERT INTO users (name, password, email) VALUES ($1,$2,$3) RETURNING *;",
+          [data.name,data.password,data.email]
+
         );
         let user = new Users(userData.rows[0]);
         resolve(user);

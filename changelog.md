@@ -12,6 +12,11 @@
     - Modified client routing
     - Changed Porfolio to work with portfolio.html
     - Added dummy functions to request.js file
+    - Added login page with graphic
+    - added register form via DOM manipulation 
+    - added animations to login page 
+    - portfolio page updated 
+    - added UI elements and graphics 
 
 ## Sever
 
@@ -31,6 +36,7 @@
     - Fixed server (user and stockbought)
     - Added Sells
     - Edited Users funtion that retrieve the list of stocks
+    - Fixed Auth and added verification to the routes
 
 ## Database
 
@@ -45,5 +51,6 @@
     - Created README
     - Docker compose running
     - Easy start scripts done
-
-## Stretch Goals
+    - Easy teardown done
+    - Easy stop done
+    - Docker compose yml for the tests done

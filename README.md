@@ -59,12 +59,13 @@ Allow users the ability to track their portfolio, with their chosen stocks, moni
 
 ## Client Endpoints
 
- - `/# || /#home || /#portfolio` Home page, will show a "please login" if not and if yes, home is where the portfolio is. (the portfolio change the main container)
- - `/#login` Show the login form (this form change the main container) Needs no Token
- - `/#invest` Show the do an investment form (this form overlap main) Needs Token
- - `/#sell` Show the sell an investment form (this form overlap main) Needs Token
- - `/#logout` It triggers the delete of the session token and it returns to the home page 
- - `/#error` 404 Page not found (change main)
+ - `/index.html` Home page and login form page.Does't require token
+ - `/index.html#singup` Show the form to register a new user. Doesn't requires token
+ - `/portfolio.html` Show the user invest habits. Needs token
+ - `/portfolio.html#invest` Show the do an investment form (this form overlap main). Needs Token
+ - `/portfolio.html/#sell` Show the sell an investment form (this form overlap main) Needs Token
+ - `/portfolio.html/#logout` It triggers the delete of the session token and it returns to the home page 
+ - `/error.html` 404 Page not found.
 
 
 ## API Endpoints
@@ -73,9 +74,10 @@ Allow users the ability to track their portfolio, with their chosen stocks, moni
 
 | Route Name | URL | HTTP Verb | Description |
 |-----|----|----|--|
-| Create | /user | POST | Create a new user | 
 | Create | /buys | POST | User buy new stock |
 | Create | /sells | POST | User sold old stock |
+| Register | /auth/register | POST | create a new user |
+| Login | /auth/login | POST | check if the user exist and if so returns a token |
 
 
 ### Get
@@ -84,7 +86,7 @@ Allow users the ability to track their portfolio, with their chosen stocks, moni
 |-----|----|----|--|
 | Root | / | GET | api started |
 | Show | /user/:id | GET | Retrieve all the sell and buy of a user |
-| Show | /buys/:id | GET | Show a particular buy |
+
 
 ###  Update
 
@@ -97,8 +99,8 @@ Allow users the ability to track their portfolio, with their chosen stocks, moni
 | Route Name | URL | HTTP Verb | Description |
 |-----|----|----|--|
 | Destroy | /user | DELETE | Destroy user and their buys history |
-| Destroy | /buys/ | DELETE | Destroy a buy because it has been sold |
-| Destroy | /sells/ | DELETE | Destroy a sell because user wants |
+| Destroy | /buys/:id | DELETE | Destroy a buy because it has been sold |
+| Destroy | /sells/:id | DELETE | Destroy a sell because user wants |
 
 
 ## Changelog 
@@ -108,3 +110,9 @@ Find the full changelog [here](./changelog.md)
 ## License
 
 [MIT License](https://opensource.org/licenses/mit-license.php)
+
+########### BUGS / OUTSTANDING DEV ###########
+
+- [ ] DB more secure (so token of user1 doesn't allow you to see the investment of user2)
+- [ ] Improved error handling (add teapod error)
+- [ ] Allow users to delete their information

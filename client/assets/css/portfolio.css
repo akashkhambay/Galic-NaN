@@ -49,8 +49,8 @@ table tbody tr td {
 padding-right: 0.75rem;
 }
 
-	tr td:nth-child(n+11),
-	tr th:nth-child(n+11) {
+	tr td:nth-child(n+12),
+	tr th:nth-child(n+12) {
 		border-radius: 0 .625rem .625rem 0;
 	}
 
@@ -84,11 +84,57 @@ margin-right: 5px;
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #818CF8; 
+  background: #3730A3; 
 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #4F46E5; 
+  background: #312E81; 
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.faster {
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@keyframes fadeIn {
+from {
+    opacity: 0;
+}
+
+to {
+    opacity: 1;
+}
+}
+
+@keyframes fadeOut {
+from {
+    opacity: 1;
+}
+
+to {
+    opacity: 0;
+}
+}
+
+.maxheightmodal {
+max-height: 83.333333%;
 }
