@@ -36,7 +36,30 @@
       <div id="left" class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
         <p class="text-center text-4xl">Welcome to the Treasury</p>
 
+        <form  id="register" class="flex flex-col pt-3 hidden md:pt-8">
 
+          <div  class="flex flex-col pt-4">
+            <label for="email" class="text-lg">Email Address</label>
+            <input type="email" id="emailReg" placeholder="Samm@futureproof.com" name="email"
+              class="shadow border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+              focus:border">
+          </div>
+
+          <div  class="flex flex-col pt-4">
+            <label for="password" class="text-lg">Password</label>
+            <input type="password" id="passwordReg" placeholder="Password" name="password"
+              class="shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+              focus:border">
+          </div>
+
+          <div id="subbtndiv" class="flex justify-center">
+            <input id="submitbtnReg" type="submit" value="Register"
+              class="  text-white bg-indigo-500 rounded-full focus:bg-indigo-600 w-auto px-28 font-bold text-lg p-2 mt-8" >
+          </div>
+
+ 
+
+        </form>
 
         <form  id="login" class="flex flex-col pt-3 md:pt-8">
 
@@ -49,7 +72,7 @@
 
           <div  class="flex flex-col pt-4">
             <label for="password" class="text-lg">Password</label>
-            <input type="password" id="password" placeholder="Password" name="Password"
+            <input type="password" id="password" placeholder="Password" name="password"
               class="shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
               focus:border">
           </div>

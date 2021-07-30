@@ -425,8 +425,6 @@ module.exports = {
     login,
     logout
 };
-
-
 },{"./requests":7,"jwt-decode":1}],6:[function(require,module,exports){
 // Closes modals on opening the site 
 all_modals = ['addInvestment-modal'
@@ -441,6 +439,10 @@ all_modals.forEach((modal)=>{
 })
 
 
+//updatebuy
+// function changeHoldingForm(id){
+    //
+
 // Close Modal 
 const modalClose = (modal) => {
     const modalToClose = document.querySelector('.'+modal);
@@ -452,7 +454,6 @@ const modalClose = (modal) => {
     let sect = document.getElementById('moreOptions');
     sect.classList.add('hidden');
 }
-
 
 //Open Modal 
 const openModal = (modal) => {
@@ -466,6 +467,7 @@ function showmoreoptions() {
     let sect = document.getElementById('moreOptions');
     sect.classList.remove('hidden');
 }
+
 
 function hidemoreoptions() {
     let sect = document.getElementById('moreOptions');
@@ -484,9 +486,20 @@ function hideautofill() {
 
 
 
+
 // const { deleteSell, deleteBuy, updateBuy, createSell} = require('./requests');
 
 
+
+// onclick(deleteSellEvent(invest.id))
+// function deleteSellEvent(data){
+//     const p = document.getElementById('deleteMessage')
+//     try{
+//         deleteSell(data);
+//         p.innerText = 'This past holding has been deleted';
+//     }
+//     catch(error){}
+// }
 // //updatebuy
 // function changeHoldingForm(id){
 // asd
@@ -514,17 +527,16 @@ function hideautofill() {
 //     }
 //     catch(error)}
 
-    
-
-
-
-
-
+// module.exports = {
+//     changeHoldingForm,
+//    // deletePastHoldingForm
+// }
 
 // module.exports={
 //     changeHoldingForm,
 //     deletePastHoldingForm,
 // }
+
 
 },{}],7:[function(require,module,exports){
 (function (process){(function (){
@@ -544,7 +556,7 @@ async function requestLogin(e){
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
         }
-        const r = await fetch(`${url}/auth/login`, options)
+        const r = await fetch(`${url}auth/login`, options)
         const data = await r.json()
         if (!data.success) { throw new Error('Login not authorised'); }
         login(data.token);
@@ -561,7 +573,7 @@ async function requestRegistration(e) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
         }
-        const r = await fetch(`${url}/auth/register`, options)
+        const r = await fetch(`${url}auth/register`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err) }
         requestLogin(e);
@@ -574,8 +586,8 @@ async function requestRegistration(e) {
 
 async function getAll(){
     try {
-        const options = { headers: new Headers({'Authorization': localStorage.getItem('token')}) }
-        const response = await fetch(`${url}user`, options);
+        const options = { headers: new Headers({'token': localStorage.getItem('token')}) }
+        const response = await fetch(`${url}users/${localStorage.getItem('id')}`, options);
         const data = await response.json();
         if(data.err){
             //console.warn(data.err);
@@ -593,11 +605,11 @@ async function getAll(){
 async function createBuy(data){
     try{ 
         const options = { 
-            headers: new Headers({'Authorization': localStorage.getItem('token')}),
+            headers: new Headers({'token': localStorage.getItem('token')}),
             method: 'POST',
             body: data 
         }
-        const response = await fetch(`${url}/user/buys`, options);
+        const response = await fetch(`${url}buys`, options);
         const jResponse = await response.json();
         return jResponse;
     } catch(e) {
@@ -608,11 +620,11 @@ async function createBuy(data){
 async function createSell(data){
     try{ 
         const options = { 
-            headers: new Headers({'Authorization': localStorage.getItem('token')}),
+            headers: new Headers({'token': localStorage.getItem('token')}),
             method: 'POST',
             body: data 
         }
-        const response = await fetch(`${url}/user/sells`, options);
+        const response = await fetch(`${url}sells`, options);
         const jResponse = await response.json();
         return jResponse;
     } catch(e) {
@@ -622,11 +634,11 @@ async function createSell(data){
 async function updateBuy(data){
     try{ 
         const options = { 
-            headers: new Headers({'Authorization': localStorage.getItem('token')}),
-            method: 'UPDATE',
+            headers: new Headers({'token': localStorage.getItem('token')}),
+            method: 'PATCH',
             body: data 
         }
-        const response = await fetch(`${url}/user/buys`, options);
+        const response = await fetch(`${url}buys`, options);
         const jResponse = await response.json();
         return jResponse;
     } catch(e) {
@@ -636,11 +648,11 @@ async function updateBuy(data){
 async function deleteBuy(data){
     try{ 
         const options = { 
-            headers: new Headers({'Authorization': localStorage.getItem('token')}),
+            headers: new Headers({'token': localStorage.getItem('token')}),
             method: 'DELETE',
             body: data 
         }
-        const response = await fetch(`${url}/user/buys`, options);
+        const response = await fetch(`${url}buys/${data.buy_id}`, options);
         const jResponse = await response.json();
         return jResponse;
     } catch(e) {
@@ -650,11 +662,11 @@ async function deleteBuy(data){
 async function deleteSell(data){
     try{ 
         const options = { 
-            headers: new Headers({'Authorization': localStorage.getItem('token')}),
+            headers: new Headers({'token': localStorage.getItem('token')}),
             method: 'DELETE',
             body: data 
         }
-        const response = await fetch(`${url}/user/sells`, options);
+        const response = await fetch(`${url}sells/${data.id}`, options);
         const jResponse = await response.json();
         return jResponse;
     } catch(e) {

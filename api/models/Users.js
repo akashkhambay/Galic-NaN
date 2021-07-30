@@ -91,7 +91,7 @@ module.exports = class Users {
         let user = new Users(userEmail.rows[0]);
         resolve(user);
       } catch (err) {
-        reject("User Email not found");
+        reject("User Email not found - may be creating");
       }
     });
   }

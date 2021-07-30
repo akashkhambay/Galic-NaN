@@ -11,7 +11,11 @@ function signup() {
     // secta.href = '#Works'
     // secta.textcontent = "Shav"
 
-    let login = document.getElementById('login')
+    let login1 = document.getElementById('login')
+    login1.setAttribute('class', 'hidden')
+    let login = document.getElementById('register')
+    login.setAttribute('class', 'flex flex-col pt-3 md:pt-8')
+
     let namediv = document.createElement('div')
     login.prepend(namediv)
     namediv.setAttribute('class', 'flex flex-col pt-4')
@@ -26,6 +30,7 @@ function signup() {
     namediv.append(nameinput)
     nameinput.setAttribute('class', 'shadow   border rounded-md w-full py-2 px-3 text-gray-700 mt-1 leading-tight  outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500 focus:border')
     nameinput.setAttribute('id', 'name')
+    nameinput.setAttribute('name', 'name')
     nameinput.setAttribute('placeholder', 'Full Name')
     
 

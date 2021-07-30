@@ -212,7 +212,7 @@
               <th class="p-3">Sell</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="holdings">
 
             <tr class="bg-indigo-50">
 
@@ -1536,7 +1536,7 @@
             <th class="p-3">Delete</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="pastHoldings">
 
           <tr class="bg-indigo-50">
 
@@ -1954,9 +1954,9 @@
           <div id="Yahoo" class="hidden">
 
             <div> 
-<form id="yahoo-form"  "> <label for="Tickersearch" class="text-lg">Search Ticker: </label>
+<form id="yahoo-form"  > <label for="Tickersearch" class="text-lg">Search Ticker: </label>
   <div class="flex justify-center h-14">
-  <input id="StockTickersearch" style="text-transform:uppercase" placeholder="GOOG" class="shadow border rounded-md w-full px-3 text-gray-700 leading-tight outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
+  <input id="StockTickersearch"  placeholder="Enter ticker" class="shadow border rounded-md w-full px-3 text-gray-700 leading-tight outline-none focus:outline-none focus-within:border-indigo-500 transition-all duration-500
   focus:border">               <input id="submitbtnyahoo" type="submit" onclick="hideautofill()" value="Autofill"
   class=" text-white bg-indigo-500 rounded-full focus:bg-indigo-600 w-auto px-6 font-bold text-lg p-2 ml-6 "> </div> </form>
 

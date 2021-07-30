@@ -12,7 +12,7 @@ all_modals.forEach((modal)=>{
 
 
 //updatebuy
-function changeHoldingForm(id){
+// function changeHoldingForm(id){
     //
 
 // Close Modal 
@@ -64,14 +64,14 @@ function hideautofill() {
 
 
 // onclick(deleteSellEvent(invest.id))
-function deleteSellEvent(data){
-    const p = document.getElementById('deleteMessage')
-    try{
-        deleteSell(data);
-        p.innerText = 'This past holding has been deleted';
-    }
-    catch(error){}
-}
+// function deleteSellEvent(data){
+//     const p = document.getElementById('deleteMessage')
+//     try{
+//         deleteSell(data);
+//         p.innerText = 'This past holding has been deleted';
+//     }
+//     catch(error){}
+// }
 // //updatebuy
 // function changeHoldingForm(id){
 // asd
@@ -99,10 +99,10 @@ function deleteSellEvent(data){
 //     }
 //     catch(error)}
 
-module.exports = {
-    changeHoldingForm,
-   // deletePastHoldingForm
-}
+// module.exports = {
+//     changeHoldingForm,
+//    // deletePastHoldingForm
+// }
 
 // module.exports={
 //     changeHoldingForm,
